@@ -1,0 +1,13 @@
+<h3>Edit : <%= @product.name %>
+
+<%= form_for @product do |p| %>
+	<label> Name </label>
+	<%= p.text_field :name %>  <br/>
+	<label> Price </label>
+	<%= p.text_field :price %>  <br/>
+	<label> Category </label>
+	<%= p.text_field :category %> <br/>
+	
+<%= p.submit "Submit" %>
+
+<% end %>

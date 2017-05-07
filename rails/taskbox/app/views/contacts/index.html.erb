@@ -1,0 +1,31 @@
+<h2> Listing Contacts </h2>
+ <% if @contacts.empty? %>
+ 	<h3> NO Contacts FOund</h3>
+ 		<%= link_to "Add contact", new_contact_path %>
+ 	<% else %>
+
+ 	<table>
+		<thead>
+			<tr>
+				<th>SL NO.</th>
+				<th>name</th>
+				<th>mobile</th>
+				<th>email</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<% @contacts.each_with_index do |contact, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= contact.first_name %></td>
+				<td><%= contact.mobile %></td>
+				<td><%= contact.email %></td>
+				<td><%= link_to "Show Details", contact_path(contact)%></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+<% end %>
+ 	
+ <%= link_to "Add contact", new_contact_path %>

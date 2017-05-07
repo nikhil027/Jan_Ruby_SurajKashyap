@@ -1,0 +1,13 @@
+<h3>Edit : <%= @contact.name %>
+
+<%= form_for @contact do |f| %>
+	<label> Name </label>
+	<%= f.text_field :name %>  <br/>
+	<label> Mobile </label>
+	<%= f.text_field :mobile %>  <br/>
+	<label> Email </label>
+	<%= f.text_field :email %> <br/>
+	
+<%=f.submit "Submit" %>
+
+<% end %>

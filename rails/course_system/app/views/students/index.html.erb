@@ -1,0 +1,31 @@
+<h2> Listing of Students </h2>
+ <% if @students.empty? %>
+ 	<h3> NO students FOund</h3>
+ 		<%= link_to "Add student", new_student_path %>
+ 	<% else %>
+
+ 	<table>
+		<thead>
+			<tr>
+				<th>SL NO.</th>
+				<th>student_name</th>
+				<th>email</th>
+				<th>major</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<% @students.each_with_index do |student, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= student.student_name %></td>
+				<td><%= student.email%></td>
+				<td><%= student.major%></td>
+				<td><%= link_to "Show Details", student_path(student)%></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+<% end %>
+ 	
+ <%= link_to "Add student", new_student_path %>

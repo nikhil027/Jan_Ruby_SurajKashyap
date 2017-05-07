@@ -1,0 +1,63 @@
+<h2> Listing of Published Articles </h2>
+
+<% if @article_published.empty? %>
+	<p>No articles found</p>
+<% else %>
+	<table>
+		<thead>
+			<tr>
+				<th>Sl No.</th>
+				<th>title</th>
+				<th>body</th>
+				<th>published</th>
+				<th>published_date</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @article_published.each_with_index do |article, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= article.title%></td>
+				<td><%= article.body%></td>
+				<td><%= article.published %></td>
+				<td><%= article.published_date%></td>
+				<td><%= link_to "Show Details", article_path(article)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<h2> Listing of Unpublished Articles </h2>
+
+<% if @article_unpublished.empty? %>
+	<p>No articles found</p>
+<% else %>
+	<table>
+		<thead>
+			<tr>
+				<th>Sl No.</th>
+				<th>title</th>
+				<th>body</th>
+				<th>published</th>
+				<th>published_date</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @article_unpublished.each_with_index do |article, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= article.title%></td>
+				<td><%= article.body%></td>
+				<td><%= article.published %></td>
+				<td><%= article.published_date%></td>
+				<td><%= link_to "Show Details", article_path(article)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<%= link_to "Add Article", new_article_path %>

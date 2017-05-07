@@ -1,0 +1,31 @@
+<h2> Listing of Subjects </h2>
+ <% if @subjects.empty? %>
+ 	<h3> NO subjects FOund</h3>
+ 		<%= link_to "Add subject", new_subject_path %>
+ 	<% else %>
+
+ 	<table>
+		<thead>
+			<tr>
+				<th>SL NO.</th>
+				<th>subject_name</th>
+				<th>instructor_id</th>
+				<th>descriptions</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<% @subjects.each_with_index do |subject, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= subject.subject_name %></td>
+				<td><%= subject.instructor_id%></td>
+				<td><%= subject.description%></td>
+				<td><%= link_to "Show Details", subject_path(subject)%></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+<% end %>
+ 	
+ <%= link_to "Add subject", new_subject_path %>

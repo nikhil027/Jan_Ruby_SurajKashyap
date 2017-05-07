@@ -1,0 +1,8 @@
+<h2><%= @student.student_name %></h2>
+
+<p>Email : <%= @student.email %></p>
+<p>Major : <%= @student.major %></p>
+
+<%= link_to "edit", edit_student_path(@student) %> or <%= link_to "back", students_path(@student) %>
+
+<%=link_to "destroy", student_path(@student), method: :delete, data: {confirm: "Are you sure?"} %>

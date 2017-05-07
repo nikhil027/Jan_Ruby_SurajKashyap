@@ -1,0 +1,23 @@
+<h2>Welcome to our site</h2>
+
+<% if @contacts.empty? %>
+	<h3>No Contacts Found</h3>
+<% else %>
+	<ol>
+		<% @contacts.each do |contact| %>
+			<li><%= contact.first_name.capitalize %> - Mob: <%= contact.mobile %></li>
+		<% end %>
+	</ol>
+<% end %>
+
+<% if @student.empty? %>
+	<h3>List is empty</h3>
+<% else %>
+	<ol>
+		<% @student.each do |students| %>
+			<li><%= Student.name.capitalize %> - Mob: <%= student.mobile %></li>
+		<% end %>
+	</ol>
+<% end %>
+
+

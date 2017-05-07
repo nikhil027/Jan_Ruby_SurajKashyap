@@ -1,0 +1,9 @@
+<h2><%= @drama.name %></h2>
+
+<p>Release Date : <%= @drama.release_date %></p>
+<p>Language : <%= @drama.language %></p>
+<p>Description : <%= @drama.description %></p>
+
+<%= link_to "edit", edit_drama_path(@drama) %> or <%= link_to "back", dramas_path(@drama) %>
+
+<%=link_to "destroy", drama_path(@drama), method: :delete, data: {confirm: "Are you sure?"} %>

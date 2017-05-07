@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Taskbox - Site</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to "Home" , site_home_path %>
+<%= link_to "Contact Us", site_contact_path %>
+<%= link_to "About Us", site_about_path %>
+<%= link_to "Services", site_services_path %> 
+
+<%= yield %>
+
+</body>
+</html>

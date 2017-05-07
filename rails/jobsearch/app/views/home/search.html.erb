@@ -1,0 +1,13 @@
+<h2> Search for your dream job </h2>
+
+<%= form_tag("/home/results", method: :get) do %>
+
+<label>Technology</label><br/>
+<%= text_field_tag :technology %><br/>
+
+<label>City</label><br/>
+<%= text_field_tag :city %><br/>
+
+<%= submit_tag "Find Me a Job" %>
+
+<% end %>

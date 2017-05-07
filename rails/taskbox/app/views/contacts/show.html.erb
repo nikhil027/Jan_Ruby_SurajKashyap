@@ -1,0 +1,8 @@
+<h2><%= @contact.first_name %></h2>
+
+<p>Mobile : <%= @contact.mobile %></p>
+<p>Email : <%= @contact.email %></p>
+
+<%= link_to "edit", edit_contact_path(@contact) %> or <%= link_to "back", contacts_path(@contact) %>
+
+<%=link_to "destroy", contact_path(@contact), method: :delete, data: {confirm: "Are you sure?"} %>

@@ -1,0 +1,35 @@
+<h2>You searched for <%= params[:technology] %> in <%= params[:city] %></h2>
+
+<p> Jobs found : <%= @response["totalResults"] %></p>
+<% job_results = @response["results"] %>
+
+<table border = "1" >
+	<thead>
+		<tr>
+			<th> # </th>
+			<th> Title </th>
+			<th> Description </th>
+			<th> Company </th>
+			<th> Source </th>
+			<th> Date Posted </th>
+			<th> URL </th>
+			<th> Expired </th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<%job_results.each_with_index do |result, index| %>
+		<tr>
+			<td><%= index + 1 %></td>
+			<td><%= result["jobtitle"] %></td>
+			<td><%= result["snippet"].html_safe %></td>
+			<td><%= result["company"] %></td>
+			<td><%= result["source"] %></td>
+			<td><%= result["date"] %></td>
+			<td><%= link_to "apply", result["url"], target: "_blank" %></td>
+			<td><%= result["expired"] %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+

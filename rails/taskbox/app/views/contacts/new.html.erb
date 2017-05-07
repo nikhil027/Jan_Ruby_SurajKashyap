@@ -1,0 +1,47 @@
+<h2> Add New Contacts </h2>
+
+<%= form_for @contact do |f| %>
+
+	<% if @contact.errors.any? %>
+		<h3> these errors prohibited the form from being saved: </h3>
+			<ul>
+			<% @contact.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+			<% end %>
+
+
+	<label> Name </label>
+	<%= f.text_field :first_name %>  <br/>
+
+	<label> Mobile</label>
+	<%= f.text_field :mobile, id: "mobile" %>
+	<p id="mobileError"></p>
+
+	<label> Email </label>
+	<%= f.text_field :email %> <br/>
+	
+<%= f.submit "Submit" %>
+
+	<% end %>
+ 
+ <script>
+
+ var mobileHandle = document.getElementById('mobile');
+ var mobileErrorHandle = document.getElementById('mobileError');
+ var digitCountHandle = document.getElementById('digitCount');
+ mobileHandle.onblur = function(){
+ 	if(mobileHandle.value == ""){
+ 		mobileErrorHandle.innerHTML = "Mobile is required";
+ 	} else if(mobileHandle.value.length !== 10){
+ 		mobileErrorHandle.innerHTMl = "Mobile should be 10 chars long";
+ 	} else {
+ 		mobileErrorHandle.innerHTML = ""
+ 	}
+ }
+
+ mobileHandle.onfocus = function(){
+ 	mobileErrorHandle.innerHTML = "";
+ }
+ </script>

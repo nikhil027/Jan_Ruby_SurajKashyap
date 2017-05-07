@@ -1,0 +1,31 @@
+<h2> Listing PRoducts </h2>
+ <% if @products.empty? %>
+ 	<h3> NO Products FOund</h3>
+ 		<%= link_to "Add product", new_product_path %>
+ 	<% else %>
+
+ 	<table>
+		<thead>
+			<tr>
+				<th>SL NO.</th>
+				<th>name</th>
+				<th>price</th>
+				<th>category</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<% @products.each_with_index do |product, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= product.name %></td>
+				<td><%= product.price %></td>
+				<td><%= product.category %></td>
+				<td><%= link_to "Show Details", product_path(product)%></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+<% end %>
+ 	
+ <%= link_to "Add Product", new_product_path %>

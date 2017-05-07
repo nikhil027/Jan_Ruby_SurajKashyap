@@ -1,0 +1,34 @@
+<h2> Listing Dramas</h2>
+
+<% if @dramas.empty? %>
+	<p>No Dramas found</p>
+	<%= link_to "ADD Drama", new_drama_path %>
+<% else %>
+	<table>
+		<thead>
+			<tr>
+				<th>SL NO.</th>
+				<th>name</th>
+				<th>release_date</th>
+				<th>language</th>
+				<th>description</th>
+				<th>action</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<% @dramas.each_with_index do |drama, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= drama.name %></td>
+				<td><%= drama.release_date.strftime("%A, %d %B %Y") %></td>
+				<td><%= drama.language %></td>
+				<td><%= drama.description %></td>
+				<td><%= link_to "Show Details", drama_path(drama)%></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<%= link_to "ADD Drama", new_drama_path %>
